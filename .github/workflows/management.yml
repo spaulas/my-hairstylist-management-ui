@@ -16,7 +16,7 @@ jobs:
       - name: trigger container
         env:
           GITHUB_TOKEN: ${{ secrets.MY_PAT }}
-          EVENT: test-repository-dispatch
+          EVENT: my-hairstylist-trigger
           ORG: spaulas
           REPO: my-hairstylist-container-ui
         run: |
