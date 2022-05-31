@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - run: |
-        $uri = "https://github.com/spaulas/my-hairstylist-container-ui"
+        uri = "https://github.com/spaulas/my-hairstylist-container-ui"
         $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f "", ${{ secrets.MY_PAT }})))
 
         $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
