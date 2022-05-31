@@ -16,14 +16,15 @@ jobs:
 
   trigger-container: 
     runs-on: ubuntu-latest
+    env:
+      MY_PAT: ${{ secrets.MY_PAT }}
     if: env.REPOSITORY_DISPATCH == "true"
     shell: pwsh
 
     steps:
       - run: |
-        $pat = ${{ secrets.MY_PAT }}
         $uri = "https://github.com/spaulas/my-hairstylist-container-ui"
-        $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f "", $pat)))
+        $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f "", ${{ secrets.MY_PAT }})))
 
         $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
         $headers.Add("Authorization", ("Basic {0}" -f $base64AuthInfo))
