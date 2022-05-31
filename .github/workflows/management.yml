@@ -23,7 +23,7 @@ jobs:
 
     steps:
       - run: |
-        $pat = $env:MY_PAT
+        $pat = ${{ secrets.MY_PAT }}
         $uri = "https://github.com/spaulas/my-hairstylist-container-ui"
         $base64AuthInfo = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes(("{0}:{1}" -f "", $pat)))
 
