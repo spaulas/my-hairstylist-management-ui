@@ -4,18 +4,20 @@ import ReactDOM from "react-dom";
 import App from "./App";
 
 const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
-  console.log("MOUNT management");
+  console.log("MANAGEMENT MOUNT FUNCTION CALL!");
   const history =
     defaultHistory || createMemoryHistory({ initialEntries: [initialPath] });
 
   if (onNavigate) {
-    history.listen(() => onNavigate(history.location));
+    history.listen(() => {
+      onNavigate(history.location);
+    });
   }
 
   ReactDOM.render(<App history={history} />, el);
 
   return {
-    onParentNavigate({ pathname: nextPathname }) {
+    onParentNavigate({ location: { pathname: nextPathname } }) {
       const { pathname } = history.location;
 
       if (nextPathname !== pathname) {
