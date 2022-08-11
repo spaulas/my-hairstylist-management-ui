@@ -1,15 +1,19 @@
 import React from "react";
-import { Switch, Route, Router } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  unstable_HistoryRouter as HistoryRouter,
+} from "react-router-dom";
 import Landing from "./components/Landing";
 import Pricing from "./components/Pricing";
 
-export default ({history}: { history: any }): React.ReactElement => {
+export default ({ history }: { history: any }): React.ReactElement => {
   return (
-    <Router history={history}>
-      <Switch>
-        <Route exact path="/pricing" component={Pricing} />
-        <Route exact path="/" component={Landing} />
-      </Switch>
-    </Router>
+    <HistoryRouter history={history}>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/pricing" element={<Pricing />} />
+      </Routes>
+    </HistoryRouter>
   );
 };

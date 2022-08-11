@@ -9,7 +9,7 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
     defaultHistory || createMemoryHistory({ initialEntries: [initialPath] });
 
   if (onNavigate) {
-    history.listen(onNavigate);
+    history.listen(() => onNavigate(history.location));
   }
 
   ReactDOM.render(<App history={history} />, el);
