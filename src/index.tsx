@@ -1,10 +1,10 @@
 import React from "react";
-import { createMemoryHistory, createBrowserHistory } from "history";
 import ReactDOM from "react-dom";
-import App from "./App";
+import { createMemoryHistory, createBrowserHistory } from "history";
+import App from "@app/App";
 
+// TODO clean up!
 const mount = (el: ReactDOM.Container | null, { onNavigate, defaultHistory, initialPath }: any) => {
-  console.log("MANAGEMENT MOUNT FUNCTION CALL!");
   const history =
     defaultHistory || createMemoryHistory({ initialEntries: [initialPath] });
 
