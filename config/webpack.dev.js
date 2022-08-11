@@ -8,6 +8,7 @@ const devConfig = {
   mode: "development",
   output: {
     publicPath: "http://localhost:8082/",
+    uniqueName: 'management'
   },
   devServer: {
     port: 8082,
@@ -18,7 +19,8 @@ const devConfig = {
       name: "management",
       filename: "remoteEntry.js",
       exposes: {
-        "./ManagementApp": "./src/bootstrap",
+        "./ManagementApp": "./src/index",
+        "./routes": "./src/config/routes",
       },
     }),
     new HtmlWebpackPlugin({ template: "./public/index.html" }),

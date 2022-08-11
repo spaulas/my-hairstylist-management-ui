@@ -3,7 +3,7 @@ import { createMemoryHistory, createBrowserHistory } from "history";
 import ReactDOM from "react-dom";
 import App from "./App";
 
-const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (el: ReactDOM.Container | null, { onNavigate, defaultHistory, initialPath }: any) => {
   console.log("MANAGEMENT MOUNT FUNCTION CALL!");
   const history =
     defaultHistory || createMemoryHistory({ initialEntries: [initialPath] });
@@ -17,7 +17,11 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
   ReactDOM.render(<App history={history} />, el);
 
   return {
-    onParentNavigate({ location: { pathname: nextPathname } }) {
+    onParentNavigate({
+      location: { pathname: nextPathname },
+    }: {
+      location: { pathname: string };
+    }) {
       const { pathname } = history.location;
 
       if (nextPathname !== pathname) {

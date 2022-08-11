@@ -13,7 +13,8 @@ const prodConfig = {
       name: "management",
       filename: "remoteEntry.js",
       exposes: {
-        "./ManagementApp": "./src/bootstrap",
+        "./ManagementApp": "./src/index",
+        "./routes": './src/config/routes'
       },
     }),
   ],
