@@ -8,6 +8,7 @@ import Landing from "./components/Landing";
 import Pricing from "./components/Pricing";
 
 export default ({ history }: { history: any }): React.ReactElement => {
+  console.log("APP management");
   return (
     <HistoryRouter history={history}>
       <Routes>
